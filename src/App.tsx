@@ -46,7 +46,7 @@ function App() {
         <option value="america">america</option>
         <option value="oceania">oceania</option>
       </select>
-      {JSON.stringify(
+      {/* {JSON.stringify(
         data?.filter((value) => {
           if (
             value.name.official.toLowerCase().search(search.toLowerCase()) > -1
@@ -54,7 +54,7 @@ function App() {
             return value;
           }
         })
-      )}
+      )} */}
     </div>
   );
 }
