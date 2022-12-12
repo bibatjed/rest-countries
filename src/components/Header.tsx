@@ -22,7 +22,7 @@ export default function Header() {
     }
   }, [theme]);
   return (
-    <div className="p-5 dark:bg-s-dm-dark-blue flex justify-between items-center bg-s-white border-b-2 border-b-s-lm-very-light-gray">
+    <div className="p-5 dark:bg-s-dm-dark-blue flex justify-between items-center bg-s-white border-b-2 border-b-s-lm-very-light-gray dark:border-b-s-dm-dark-blue">
       <h1 className="text-base dark:text-s-lm-very-light-gray font-nunito-sans font-extrabold">
         Where in the world?
       </h1>

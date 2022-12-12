@@ -1,60 +1,44 @@
-import { ChangeEvent, useEffect, useState } from "react";
-import "./App.css";
+import { ChangeEvent } from "react";
+import Header from "./components/Header";
+import Search from "./components/Search";
+import Select from "./components/Select";
+import useCountries from "./hooks/useCountries";
 
-type Country = {
-  name: {
-    official: string;
-  };
-};
+const selectOptions = [
+  {
+    label: "Africa",
+    value: "africa",
+  },
+  {
+    label: "America",
+    value: "america",
+  },
+  {
+    label: "Asia",
+    value: "asia",
+  },
+  {
+    label: "Europe",
+    value: "europe",
+  },
+  {
+    label: "Oceania",
+    value: "oceania",
+  },
+];
 function App() {
-  const [data, setData] = useState<Country[] | null>(null);
-  const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState("");
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((data) => data.json())
-      .then((data) => setData(data));
-  }, []);
-
-  useEffect(() => {
-    if (selected) {
-      console.log("hello");
-      fetch(`https://restcountries.com/v3.1/region/${selected}`)
-        .then((data) => data.json())
-        .then((data) => {
-          setData(data);
-        });
-    }
-  }, [selected]);
-
+  const { dataFilter, setSelected, setSearch } = useCountries();
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-  const handleOnChangeSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelected(e.target.value);
-  };
   return (
-    <div className="App">
-      <input onChange={handleOnChange} /> search for country
-      <select value={selected} onChange={handleOnChangeSelect}>
-        <option disabled={true} value="">
-          choose
-        </option>
-        <option value="africa">africa</option>
-        <option value="europe">europe</option>
-        <option value="asia">asia</option>
-        <option value="america">america</option>
-        <option value="oceania">oceania</option>
-      </select>
-      {/* {JSON.stringify(
-        data?.filter((value) => {
-          if (
-            value.name.official.toLowerCase().search(search.toLowerCase()) > -1
-          ) {
-            return value;
-          }
-        })
-      )} */}
+    <div className="bg-s-lm-very-light-gray dark:bg-s-dm-very-dark-blue h-screen">
+      <Header />
+      <div className="flex items-center flex-col w-11/12 gap-8 m-auto mt-6">
+        <Search setSearch={handleOnChange} />
+        <Select SelectOptions={selectOptions} setSelected={setSelected} />
+      </div>
+      {/* {JSON.stringify(dataFilter)} */}
     </div>
   );
 }
