@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 type CountryProps = {
   image: string;
   name: string;
@@ -6,9 +8,16 @@ type CountryProps = {
   capital: string;
 };
 export default function Country(props: CountryProps) {
+  const navigate = useNavigate();
   const semiBold = "font-semibold mr-1";
+  const handleOnClick = () => {
+    navigate(`/${props.name.toLowerCase()}`);
+  };
   return (
-    <div className="flex flex-col bg-s-white shadow-md rounded-md dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray mb-2">
+    <div
+      onClick={handleOnClick}
+      className="flex flex-col bg-s-white shadow-md rounded-md dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray mb-2"
+    >
       <div className="w-full">
         <img className="w-full rounded-md" src={props.image} alt={props.name} />
       </div>

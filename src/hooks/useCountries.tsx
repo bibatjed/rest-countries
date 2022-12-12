@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import HTTPCountry from "../service/http";
 
-type Country = {
+export type Country = {
   name: {
     official: string;
     common: string;
