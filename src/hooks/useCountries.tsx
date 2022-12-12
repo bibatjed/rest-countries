@@ -4,7 +4,14 @@ import HTTPCountry from "../service/http";
 type Country = {
   name: {
     official: string;
+    common: string;
   };
+  capital: string;
+  flags: {
+    png: string;
+  };
+  population: string;
+  region: string[];
 };
 
 export default function useCountries() {
