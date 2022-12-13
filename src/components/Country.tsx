@@ -16,10 +16,14 @@ export default function Country(props: CountryProps) {
   return (
     <div
       onClick={handleOnClick}
-      className="flex flex-col bg-s-white shadow-md rounded-md dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray mb-2"
+      className="flex flex-col h-full bg-s-white shadow-md rounded-md dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray mb-2"
     >
       <div className="w-full">
-        <img className="w-full rounded-md" src={props.image} alt={props.name} />
+        <img
+          className="w-full aspect-video object-fill rounded-md"
+          src={props.image}
+          alt={props.name}
+        />
       </div>
       <div className="flex flex-col p-5 font-nunito-sans">
         <span className="font-extrabold">{props.name}</span>

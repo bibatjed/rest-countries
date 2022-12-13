@@ -138,7 +138,7 @@ export default function DetailedPage() {
 
             <div className="mb-2 flex flex-col gap-2">
               <span className="text-base font-semibold">Border Countries:</span>
-              <div className="grid grid-cols-fill-110 gap-3">
+              <div className="grid grid-cols-110 gap-3">
                 {detailedData?.borders?.map((value) => {
                   return (
                     <>

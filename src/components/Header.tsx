@@ -22,16 +22,18 @@ export default function Header() {
     }
   }, [theme]);
   return (
-    <div className="p-5 dark:bg-s-dm-dark-blue flex justify-between items-center bg-s-white border-b-2 border-b-s-lm-very-light-gray dark:border-b-s-dm-dark-blue">
-      <h1 className="text-base dark:text-s-lm-very-light-gray font-nunito-sans font-extrabold">
-        Where in the world?
-      </h1>
-      <button onClick={handleChangeTheme} className="flex items-center gap-2">
-        <MdDarkMode className="dark:text-s-lm-very-light-gray" />
-        <span className="text-sm dark:text-s-lm-very-light-gray font-nunito-sans font-semibold">
-          Dark Mode
-        </span>
-      </button>
+    <div className="flex justify-center items-center dark:bg-s-dm-dark-blue bg-s-white border-b-2 border-b-s-lm-very-light-gray dark:border-b-s-dm-dark-blue">
+      <div className="w-11/12 flex justify-between items-center p-5">
+        <h1 className="text-base md:text-lg dark:text-s-lm-very-light-gray font-nunito-sans font-extrabold">
+          Where in the world?
+        </h1>
+        <button onClick={handleChangeTheme} className="flex items-center gap-2">
+          <MdDarkMode size="20" className="dark:text-s-lm-very-light-gray" />
+          <span className="text-sm md:text-base dark:text-s-lm-very-light-gray font-nunito-sans font-semibold">
+            Dark Mode
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

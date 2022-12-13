@@ -21,7 +21,7 @@ export default function Select(props: ISelect) {
   return (
     <>
       <select
-        className="w-7/12 self-start p-4 dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray rounded-md bg-s-white border-none shadow-md outline-none font-nunito-sans text-sm font-semibold"
+        className="w-7/12 max-w-max self-start p-4 dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray rounded-md bg-s-white border-none shadow-md outline-none font-nunito-sans text-sm font-semibold"
         value={selected}
         onChange={handleOnChangeSelect}
       >

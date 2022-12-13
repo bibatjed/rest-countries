@@ -3,10 +3,18 @@ module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    gridTemplateColumns: {
-      "fill-110": "repeat(auto-fill, minmax(100px, 1fr))",
+    extend: {
+      screens: {
+        xxl: "1920px",
+      },
+      gridTemplateColumns: {
+        110: "repeat(auto-fill, minmax(100px, 1fr))",
+        225: "repeat(auto-fill, minmax(330px, 1fr))",
+      },
+      width: {
+        "11.5/12": "95%",
+      },
     },
-    extend: {},
     colors: {
       "s-dm-dark-blue": "hsl(209, 23%, 22%)",
       "s-dm-very-dark-blue": "hsl(207, 26%, 17%)",

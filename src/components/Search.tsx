@@ -5,7 +5,7 @@ interface ISearch {
 }
 export default function Search(props: ISearch) {
   return (
-    <div className="flex gap-4 w-full bg-s-white shadow-md p-3 dark:bg-s-dm-dark-blue rounded-md">
+    <div className="flex gap-4 w-full max-w-lg bg-s-white shadow-md p-3 dark:bg-s-dm-dark-blue rounded-md">
       <div className="flex justify-center items-center ml-3">
         <AiOutlineSearch size="20" className="dark:text-s-lm-very-light-gray" />
       </div>
