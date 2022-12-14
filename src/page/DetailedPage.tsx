@@ -80,7 +80,7 @@ export default function DetailedPage() {
             <img
               src={detailedData?.flags?.svg}
               alt={detailedData?.name?.common}
-              className="w-full md:w-3/6 aspect-video object-fill max-w-[900px]"
+              className="w-full md:w-3/6 aspect-video object-cover max-w-[900px]"
             />
             <div className="md:self-center grid gap-7 md:grid-cols-2 md:gap-0 md:grid-rows-[50px_180px_100px] lg:gap-x-24 lg:gap-y-2">
               <span className="text-xl font-extrabold md:col-span-2 lg:text-3xl">
