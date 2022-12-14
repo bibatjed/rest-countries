@@ -67,7 +67,7 @@ export default function DetailedPage() {
   return (
     <Main>
       <div className="bg-s-lm-very-light-gray p-1 dark:bg-s-dm-very-dark-blue dark:text-s-lm-very-light-gray font-nunito-sans min-h-screen">
-        <div className="w-11/12 m-auto mt-5">
+        <div className="w-11/12 m-auto max-w-[1920px] mt-5">
           {" "}
           <button
             onClick={() => navigate(-1)}
@@ -80,7 +80,7 @@ export default function DetailedPage() {
             <img
               src={detailedData?.flags?.svg}
               alt={detailedData?.name?.common}
-              className="w-full md:w-3/6 aspect-video object-cover max-w-[900px]"
+              className="w-full md:w-3/6 aspect-video flex-grow object-cover max-w-[1000px]"
             />
             <div className="md:self-center grid gap-7 md:grid-cols-2 md:gap-0 md:grid-rows-[50px_180px_100px] lg:gap-x-24 lg:gap-y-2">
               <span className="text-xl font-extrabold md:col-span-2 lg:text-3xl">
