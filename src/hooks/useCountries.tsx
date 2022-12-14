@@ -9,6 +9,7 @@ export type Country = {
   capital: string;
   flags: {
     png: string;
+    svg: string;
   };
   population: string;
   region: string[];
