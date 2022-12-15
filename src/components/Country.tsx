@@ -14,7 +14,7 @@ export default function Country(props: CountryProps) {
     navigate(`/${props.name.toLowerCase()}`);
   };
   return (
-    <div
+    <section
       onClick={handleOnClick}
       className="flex flex-col h-full bg-s-white shadow-md rounded-md dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray mb-2"
     >
@@ -40,6 +40,6 @@ export default function Country(props: CountryProps) {
           <span>{props.capital}</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

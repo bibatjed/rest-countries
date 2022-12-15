@@ -22,7 +22,7 @@ export default function Header() {
     }
   }, [theme]);
   return (
-    <div className="flex justify-center items-center dark:bg-s-dm-dark-blue bg-s-white border-b-2 border-b-s-lm-very-light-gray dark:border-b-s-dm-dark-blue">
+    <header className="flex justify-center items-center dark:bg-s-dm-dark-blue bg-s-white border-b-2 border-b-s-lm-very-light-gray dark:border-b-s-dm-dark-blue">
       <div className="w-11/12 max-w-[1920px] flex justify-between items-center p-5">
         <h1 className="text-base md:text-lg dark:text-s-lm-very-light-gray font-nunito-sans font-extrabold">
           Where in the world?
@@ -34,6 +34,6 @@ export default function Header() {
           </span>
         </button>
       </div>
-    </div>
+    </header>
   );
 }

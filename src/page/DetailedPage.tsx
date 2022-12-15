@@ -67,7 +67,7 @@ export default function DetailedPage() {
   return (
     <Main>
       <div className="bg-s-lm-very-light-gray p-1 dark:bg-s-dm-very-dark-blue dark:text-s-lm-very-light-gray font-nunito-sans min-h-screen">
-        <div className="w-11/12 m-auto max-w-[1920px] mt-5">
+        <main className="w-11/12 m-auto max-w-[1920px] mt-5">
           {" "}
           <button
             onClick={() => navigate(-1)}
@@ -76,20 +76,20 @@ export default function DetailedPage() {
             <BiArrowBack size="20" />
             <span className="font-semibold text-base">Back</span>
           </button>
-          <div className="flex flex-col md:flex-row md:justify-between md:gap-10 lg:justify-start lg:gap-28 gap-7 mt-12">
+          <article className="flex flex-col md:flex-row md:justify-between md:gap-10 lg:justify-start lg:gap-28 gap-7 mt-12">
             <img
               src={detailedData?.flags?.svg}
               alt={detailedData?.name?.common}
               className="w-full md:w-3/6 aspect-video flex-grow object-cover max-w-[1000px]"
             />
-            <div className="md:self-center grid gap-7 md:grid-cols-2 md:gap-0 md:grid-rows-[50px_180px_100px] lg:gap-x-24 lg:gap-y-2">
+            <article className="md:self-center grid gap-7 md:grid-cols-2 md:gap-0 md:grid-rows-[50px_180px_100px] lg:gap-x-24 lg:gap-y-2">
               <span className="text-xl font-extrabold md:col-span-2 lg:text-3xl">
                 {detailedData?.name?.common}
               </span>
 
               {/* Native name info */}
-              <div className="md:col-span-1">
-                <div>
+              <article className="md:col-span-1">
+                <article>
                   <span className={semiBold}>Native Name:</span>
                   <span>
                     {
@@ -97,52 +97,52 @@ export default function DetailedPage() {
                         ?.common
                     }
                   </span>
-                </div>
-                <div>
+                </article>
+                <article>
                   <span className={semiBold}>Population:</span>
                   <span>{detailedData?.population}</span>
-                </div>
-                <div>
+                </article>
+                <article>
                   <span className={semiBold}>Region:</span>
                   <span>{detailedData?.region}</span>
-                </div>
-                <div>
+                </article>
+                <article>
                   <span className={semiBold}>Sub Region:</span>
                   <span>{detailedData?.subregion}</span>
-                </div>
-                <div>
+                </article>
+                <article>
                   <span className={semiBold}>Capital:</span>
                   <span>{detailedData?.capital}</span>
-                </div>
-              </div>
+                </article>
+              </article>
 
               {/* TLD */}
-              <div className="md:col-span-1">
-                <div>
+              <article className="md:col-span-1">
+                <article>
                   <span className={semiBold}>Top Level Domain:</span>
                   <span>{detailedData?.tld?.toString()}</span>
-                </div>
-                <div>
+                </article>
+                <article>
                   <span className={semiBold}>Currencies:</span>
                   <span>
                     {detailedData?.currencies?.[currency as string].name}
                   </span>
-                </div>
-                <div>
+                </article>
+                <article>
                   <span className={semiBold}>Languages: </span>
                   <span>
                     {Object.values(detailedData?.languages || {})?.toString()}
                   </span>
-                </div>
-              </div>
+                </article>
+              </article>
 
               {/*border countries  */}
 
-              <div className="mb-2 flex flex-col gap-2 md:items-center  md:col-span-2 md:flex-row md:flex-wrap">
+              <article className="mb-2 flex flex-col gap-2 md:items-center  md:col-span-2 md:flex-row md:flex-wrap">
                 <span className="text-base font-semibold">
                   Border Countries:
                 </span>
-                <div className="grid grid-cols-110 gap-3 md:gap-1 md:flex md:flex-row md:flex-wrap">
+                <article className="grid grid-cols-110 gap-3 md:gap-1 md:flex md:flex-row md:flex-wrap">
                   {detailedData?.borders?.map((value) => {
                     return (
                       <>
@@ -155,11 +155,11 @@ export default function DetailedPage() {
                       </>
                     );
                   }) || <span>None</span>}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                </article>
+              </article>
+            </article>
+          </article>
+        </main>
       </div>
     </Main>
   );
