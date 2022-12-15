@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { useEffect } from "react";
+import { MdDarkMode } from "react-icons/md";
 import { useLocalStorage } from "usehooks-ts";
 export default function Header() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;

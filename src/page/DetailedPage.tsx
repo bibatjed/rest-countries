@@ -4,7 +4,7 @@ import { Country } from "../hooks/useCountries";
 import { BiArrowBack } from "react-icons/bi";
 import Main from "../components/Main";
 
-type DetailedPage = {
+type TypeDetailedPage = {
   languages: any;
   subregion: string;
   tld: string[];
@@ -17,7 +17,7 @@ type DetailedPage = {
 export default function DetailedPage() {
   const params = useParams();
   const location = useLocation();
-  const [data, setData] = useState<DetailedPage[]>();
+  const [data, setData] = useState<TypeDetailedPage[]>();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
