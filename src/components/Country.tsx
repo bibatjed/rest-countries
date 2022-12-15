@@ -20,7 +20,7 @@ export default function Country(props: CountryProps) {
     >
       <div className="w-full">
         <img
-          className="w-full aspect-video object-fill rounded-md"
+          className="w-full aspect-video object-cover rounded-md"
           src={props.image}
           alt={props.name}
         />

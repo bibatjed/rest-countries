@@ -8,7 +8,6 @@ export type Country = {
   };
   capital: string;
   flags: {
-    png: string;
     svg: string;
   };
   population: string;
@@ -34,6 +33,7 @@ export default function useCountries() {
       if (value.name.official.toLowerCase().search(search.toLowerCase()) > -1) {
         return value;
       }
+      return false;
     });
   }, [search, data]);
   useEffect(() => {

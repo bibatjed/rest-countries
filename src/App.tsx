@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 import Country from "./components/Country";
 import CountrySkeletonWrapper from "./components/CountrySkeletonWrapper";
 import Main from "./components/Main";
@@ -49,7 +49,7 @@ function App() {
                 return (
                   <>
                     <Country
-                      image={value.flags.png}
+                      image={value.flags.svg}
                       name={value.name.common}
                       population={value.population}
                       region={value.region}
