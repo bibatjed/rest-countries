@@ -1,5 +1,6 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import Country from "./components/Country";
+import CountrySkeletonWrapper from "./components/CountrySkeletonWrapper";
 import Main from "./components/Main";
 import Search from "./components/Search";
 import Select from "./components/Select";
@@ -28,10 +29,11 @@ const selectOptions = [
   },
 ];
 function App() {
-  const { dataFilter, setSelected, setSearch } = useCountries();
+  const { dataFilter, setSelected, setSearch, isLoading } = useCountries();
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+
   return (
     <Main>
       <div className="bg-s-lm-very-light-gray dark:bg-s-dm-very-dark-blue h-full min-h-screen">
@@ -41,19 +43,21 @@ function App() {
             <Select SelectOptions={selectOptions} setSelected={setSelected} />
           </div>
           <article className="w-11/12 max-w-[1920px] m-auto mt-9 md:mt-16 grid grid-cols-225 xxl:grid-cols-4 gap-4">
-            {dataFilter?.map((value) => {
-              return (
-                <>
-                  <Country
-                    image={value.flags.png}
-                    name={value.name.common}
-                    population={value.population}
-                    region={value.region}
-                    capital={value.capital}
-                  />
-                </>
-              );
-            })}
+            {isLoading && <CountrySkeletonWrapper />}
+            {!isLoading &&
+              dataFilter?.map((value) => {
+                return (
+                  <>
+                    <Country
+                      image={value.flags.png}
+                      name={value.name.common}
+                      population={value.population}
+                      region={value.region}
+                      capital={value.capital}
+                    />
+                  </>
+                );
+              })}
           </article>
         </main>
       </div>

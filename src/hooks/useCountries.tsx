@@ -19,8 +19,14 @@ export default function useCountries() {
   const [data, setData] = useState<Country[] | null>(null);
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    HTTPCountry.getAllCountry().then((data) => setData(data));
+    setIsLoading(true);
+    HTTPCountry.getAllCountry()
+      .then((data) => setData(data))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   const dataFilter = useMemo(() => {
@@ -32,9 +38,14 @@ export default function useCountries() {
   }, [search, data]);
   useEffect(() => {
     if (selected) {
-      HTTPCountry.getCountryByRegion(selected).then((data) => setData(data));
+      setIsLoading(true);
+      HTTPCountry.getCountryByRegion(selected)
+        .then((data) => setData(data))
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   }, [selected]);
 
-  return { dataFilter, setSelected, setSearch };
+  return { dataFilter, setSelected, setSearch, isLoading };
 }

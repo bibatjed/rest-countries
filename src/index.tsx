@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import DetailedPage from "./page/DetailedPage";
+import CountrySkeletion from "./components/CountrySkeleton";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/sample",
+    element: <CountrySkeletion />,
   },
   {
     path: "/:id",
