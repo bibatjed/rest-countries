@@ -42,7 +42,7 @@ function App() {
             <Search setSearch={handleOnChange} />
             <Select SelectOptions={selectOptions} setSelected={setSelected} />
           </div>
-          <article className="w-11/12 max-w-[1920px] m-auto mt-9 md:mt-16 grid grid-cols-225 xxl:grid-cols-4 gap-4">
+          <article className="w-11/12 gap-y-9 max-w-[1920px] m-auto mt-9 md:mt-16 grid grid-cols-225 xxl:grid-cols-4 md:gap-14">
             {isLoading && <CountrySkeletonWrapper />}
             {!isLoading &&
               dataFilter?.map((value) => {
