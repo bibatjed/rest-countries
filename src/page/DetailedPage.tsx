@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Country } from "../hooks/useCountries";
 import { BiArrowBack } from "react-icons/bi";
 import Main from "../components/Main";
@@ -16,6 +16,7 @@ type DetailedPage = {
 } & Country;
 export default function DetailedPage() {
   const params = useParams();
+  const location = useLocation();
   const [data, setData] = useState<DetailedPage[]>();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -70,7 +71,13 @@ export default function DetailedPage() {
         <main className="w-11/12 m-auto max-w-[1920px] mt-5">
           {" "}
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => {
+              if (location.key === "default") {
+                console.log(true);
+                return navigate("/");
+              }
+              navigate(-1);
+            }}
             className="flex gap-3 items-center p-3 shadow-lg dark:bg-s-dm-dark-blue rounded-sm bg-s-white "
           >
             <BiArrowBack size="20" />
