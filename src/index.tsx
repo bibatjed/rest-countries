@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import DetailedPage from "./page/DetailedPage";
-import CountrySkeletion from "./components/CountrySkeleton";
+import DetailedPageSkeleton from "./components/DetailedPageSkeleton";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/sample",
-    element: <CountrySkeletion />,
+    element: <DetailedPageSkeleton />,
   },
   {
     path: "/:id",
