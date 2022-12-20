@@ -16,7 +16,7 @@ export default function Country(props: CountryProps) {
   return (
     <section
       onClick={handleOnClick}
-      className="flex flex-col h-full bg-s-white shadow-md rounded-md dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray mb-2"
+      className="transition-all duration-500 flex flex-col h-full bg-s-white shadow-md rounded-md dark:bg-s-dm-dark-blue dark:text-s-lm-very-light-gray mb-2"
     >
       <div className="w-full">
         <img

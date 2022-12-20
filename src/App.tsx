@@ -36,7 +36,7 @@ function App() {
 
   return (
     <Main>
-      <div className="bg-s-lm-very-light-gray dark:bg-s-dm-very-dark-blue h-full min-h-screen">
+      <div className="transition-all duration-500 bg-s-lm-very-light-gray dark:bg-s-dm-very-dark-blue h-full min-h-screen">
         <main className="w-full flex-col flex items-center">
           <div className="flex md:flex-row md:justify-between md:mt-12 flex-col w-11/12 max-w-[1920px] gap-8 mt-6">
             <Search setSearch={handleOnChange} />

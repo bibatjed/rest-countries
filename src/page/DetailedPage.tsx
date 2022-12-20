@@ -65,18 +65,17 @@ export default function DetailedPage() {
   const semiBold = "font-semibold mr-1";
   return (
     <Main>
-      <div className="bg-s-lm-very-light-gray p-1 dark:bg-s-dm-very-dark-blue dark:text-s-lm-very-light-gray font-nunito-sans min-h-screen">
+      <div className="transition-all duration-500 bg-s-lm-very-light-gray p-1 dark:bg-s-dm-very-dark-blue dark:text-s-lm-very-light-gray font-nunito-sans min-h-screen">
         <main className="w-11/12 m-auto max-w-[1920px] mt-5">
           {" "}
           <button
             onClick={() => {
               if (location.key === "default") {
-                console.log(true);
                 return navigate("/");
               }
               navigate(-1);
             }}
-            className="flex gap-3 items-center p-3 shadow-lg dark:bg-s-dm-dark-blue rounded-sm bg-s-white "
+            className="transition-all duration-500 flex gap-3 items-center p-3 shadow-lg dark:bg-s-dm-dark-blue rounded-sm bg-s-white "
           >
             <BiArrowBack size="20" />
             <span className="font-semibold text-base">Back</span>
@@ -160,7 +159,7 @@ export default function DetailedPage() {
                               onClick={() =>
                                 navigate(`/${value.toLowerCase()}`)
                               }
-                              className="p-2 bg-s-white dark:bg-s-dm-dark-blue px-6 shadow-lg w-28 md:px-1 md:w-20 md:p-1 "
+                              className="transition-all duration-500 p-2 bg-s-white dark:bg-s-dm-dark-blue px-6 shadow-lg w-28 md:px-1 md:w-20 md:p-1 "
                             >
                               {value}
                             </button>
