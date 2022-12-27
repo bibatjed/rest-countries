@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import DetailedPage from "./page/DetailedPage";
 import DetailedPageSkeleton from "./components/DetailedPageSkeleton";
+import { QueryClient, QueryClientProvider } from "react-query";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -23,9 +24,13 @@ const router = createBrowserRouter([
     element: <DetailedPage />,
   },
 ]);
+
+const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
