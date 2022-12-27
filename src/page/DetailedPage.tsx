@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Country } from "../hooks/useCountries";
 import { BiArrowBack } from "react-icons/bi";
 import Main from "../components/Main";
 import DetailedPageSkeletion from "../components/DetailedPageSkeleton";
+import { useQuery } from "react-query";
+import HTTPCountry from "../service/http";
 
 type TypeDetailedPage = {
   languages: any;
@@ -15,47 +16,23 @@ type TypeDetailedPage = {
     nativeName: any;
   };
 } & Country;
+
+async function fetchCountryByName(name: string) {
+  return HTTPCountry.getCountryByName(name);
+}
 export default function DetailedPage() {
   const params = useParams();
   const location = useLocation();
-  const [data, setData] = useState<TypeDetailedPage[]>();
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-  useEffect(() => {
-    setLoading(true);
-    fetch(`https://restcountries.com/v3.1/name/${params.id}?fullText=true`)
-      .then(async (data) => {
-        if (!data.ok) {
-          //debugger
-          return fetch(`https://restcountries.com/v3.1/alpha/${params.id}`)
-            .then((data) => {
-              if (!data.ok) {
-                throw data;
-              }
-              return data.json();
-            })
-            .then((data) => {
-              return data;
-            })
-            .catch((e) => {
-              throw e;
-            });
-        } else {
-          return data.json();
-        }
-      })
-      .then((data) => {
-        setData(data);
-      })
-      .catch((e) => {
-        setData([]);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [params.id]);
+  const { data, isLoading, error } = useQuery<TypeDetailedPage[]>({
+    queryKey: ["name", params.id],
+    queryFn: () => fetchCountryByName(params.id as string),
+    refetchOnWindowFocus: false,
+    retry: false,
+  });
 
-  if (data?.length === 0) {
+  const navigate = useNavigate();
+
+  if (error) {
     return <>Error...</>;
   }
 
@@ -81,8 +58,8 @@ export default function DetailedPage() {
             <span className="font-semibold text-base">Back</span>
           </button>
           <article className="flex flex-col md:flex-row md:justify-between md:gap-10 lg:justify-start lg:gap-28 gap-7 mt-12">
-            {loading && <DetailedPageSkeletion />}
-            {!loading && (
+            {isLoading && <DetailedPageSkeletion />}
+            {!isLoading && (
               <>
                 <img
                   src={detailedData?.flags?.svg}
