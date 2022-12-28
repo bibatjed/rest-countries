@@ -133,6 +133,7 @@ export default function DetailedPage() {
                         return (
                           <>
                             <button
+                              key={value.toString()}
                               onClick={() =>
                                 navigate(`/${value.toLowerCase()}`)
                               }

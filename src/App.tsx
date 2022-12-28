@@ -47,15 +47,14 @@ function App() {
             {!isLoading &&
               dataFilter?.map((value) => {
                 return (
-                  <>
-                    <Country
-                      image={value.flags.svg}
-                      name={value.name.common}
-                      population={value.population}
-                      region={value.region}
-                      capital={value.capital}
-                    />
-                  </>
+                  <Country
+                    key={value.name.common}
+                    image={value.flags.svg}
+                    name={value.name.common}
+                    population={value.population}
+                    region={value.region}
+                    capital={value.capital}
+                  />
                 );
               })}
           </article>
